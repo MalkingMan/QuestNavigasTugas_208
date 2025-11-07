@@ -46,4 +46,17 @@ fun WelcomeScreen(onNavigateToForm: () -> Unit) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(vertical = 32.dp)
             )
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "Muhammad Array Al-khozini",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "20230140208",
+                    fontSize = 16.sp,
+                    color = Color.Gray
+                )
+            }
 
