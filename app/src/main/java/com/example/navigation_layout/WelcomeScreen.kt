@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.navigation_layout.ui.theme.PercobaanTheme
+import com.example.navigation_layout.ui.theme.NavigasiLayoutTheme
 
 @Composable
 fun WelcomeScreen(onNavigateToForm: () -> Unit) {
@@ -74,7 +74,7 @@ fun WelcomeScreen(onNavigateToForm: () -> Unit) {
 @Preview(showBackground = true, device = "spec:width=360dp,height=640dp,dpi=480")
 @Composable
 fun WelcomeScreenPreview() {
-    PercobaanTheme {
+    NavigasiLayoutTheme {
         WelcomeScreen(onNavigateToForm = {})
     }
 }
