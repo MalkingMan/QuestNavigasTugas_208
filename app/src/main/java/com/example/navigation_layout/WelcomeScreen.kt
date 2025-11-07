@@ -71,3 +71,10 @@ fun WelcomeScreen(onNavigateToForm: () -> Unit) {
     }
 }
 
+@Preview(showBackground = true, device = "spec:width=360dp,height=640dp,dpi=480")
+@Composable
+fun WelcomeScreenPreview() {
+    PercobaanTheme {
+        WelcomeScreen(onNavigateToForm = {})
+    }
+}
