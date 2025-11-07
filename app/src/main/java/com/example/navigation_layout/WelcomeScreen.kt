@@ -39,3 +39,11 @@ fun WelcomeScreen(onNavigateToForm: () -> Unit) {
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF4A148C) // Darker purple for text
             )
+
+            Text(
+                text = "[LOGO]",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(vertical = 32.dp)
+            )
+
