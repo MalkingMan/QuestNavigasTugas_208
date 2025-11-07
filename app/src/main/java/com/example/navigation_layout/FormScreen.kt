@@ -38,3 +38,10 @@ fun FormScreen(onNavigateBack: () -> Unit) {
         modifier = Modifier.fillMaxSize(),
         color = Color(0xFFEADDFF)
     ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+    }
