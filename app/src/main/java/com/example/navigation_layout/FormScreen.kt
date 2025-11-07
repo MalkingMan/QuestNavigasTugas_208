@@ -26,3 +26,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.navigation_layout.ui.theme.PercobaanTheme
+
+@Composable
+fun FormScreen(onNavigateBack: () -> Unit) {
+    var namaLengkap by remember { mutableStateOf("") }
+    var jenisKelamin by remember { mutableStateOf("") }
+    var statusPerkawinan by remember { mutableStateOf("") }
+    var alamat by remember { mutableStateOf("") }
+
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = Color(0xFFEADDFF)
+    ) {
