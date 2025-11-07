@@ -1,4 +1,6 @@
-package com.example.navigation_layout.form
+// GANTI SELURUH ISI FILE FormScreen.kt DENGAN KODE INI
+
+package com.example.navigation_layout.form // Pastikan package ini benar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -7,15 +9,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+// Pastikan ini adalah nama Theme Anda setelah di-refactor
 import com.example.navigation_layout.ui.theme.NavigasiLayoutTheme
 
-// Mengubah FormTextField agar terlihat seperti kartu dengan background putih
+// Fungsi FormTextField ini sudah benar, tidak perlu diubah.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormTextField(label: String, value: String, onValueChange: (String) -> Unit) {
@@ -34,91 +36,98 @@ fun FormTextField(label: String, value: String, onValueChange: (String) -> Unit)
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = value, // Menampilkan nilai yang sudah ada sebagai teks, bukan TextField input
+                text = value, // Menampilkan nilai yang sudah ada sebagai teks
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color.Black // Warna teks input hitam
             )
-            // Jika ini seharusnya bisa diedit, kita akan memakai TextField,
-            // tetapi di gambar ini terlihat seperti tampilan data, bukan input
-            // Contoh untuk input:
-            // TextField(
-            //     value = value,
-            //     onValueChange = onValueChange,
-            //     modifier = Modifier.fillMaxWidth(),
-            //     colors = TextFieldDefaults.textFieldColors(
-            //         containerColor = Color.Transparent, // Tanpa latar belakang TextField
-            //         focusedIndicatorColor = Color.Transparent, // Hapus garis bawah saat fokus
-            //         unfocusedIndicatorColor = Color.Transparent // Hapus garis bawah
-            //     ),
-            //     textStyle = LocalTextStyle.current.copy(fontSize = 16.sp)
-            // )
         }
     }
 }
 
 
 @Composable
-fun FormScreen(onNavigateHome: () -> Unit, onNavigateToFormPendaftaran: () -> Unit) { // Mengubah onNavigateBack menjadi onNavigateHome dan menambah onNavigateToFormPendaftaran
-    // State untuk input field, diisi dengan contoh data seperti di gambar
+fun FormScreen(onNavigateHome: () -> Unit, onNavigateToFormPendaftaran: () -> Unit) {
+    // State untuk input field
     var namaLengkap by remember { mutableStateOf("Muhammad Array Al-Khozini") }
     var jenisKelamin by remember { mutableStateOf("Laki-laki") }
     var statusPerkawinan by remember { mutableStateOf("Lajang") }
     var alamat by remember { mutableStateOf("Kediri") }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = Color(0xFFF5F5F5) // Latar belakang abu-abu sangat terang
+    // Mendefinisikan warna dari gambar (sesuai dengan file Anda)
+    // Warna ungu tua untuk header dan tombol
+    val headerColor = Color(0xFF6750A4)
+    // Warna ungu muda untuk latar belakang konten
+    val backgroundColor = Color(0xFFEADDFF)
+    // Warna putih untuk teks di header
+    val titleColor = Color.White
+
+    // --- Layout Baru Dimulai Di Sini ---
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            // Terapkan warna latar belakang ungu muda ke seluruh layar
+            .background(backgroundColor)
     ) {
-        Column(
+        // 1. Header Ungu
+        Row(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 24.dp, vertical = 32.dp), // Padding yang lebih besar
-            horizontalAlignment = Alignment.CenterHorizontally
+                .fillMaxWidth()
+                .background(headerColor)
+                .padding(top = 64.dp, bottom = 32.dp, start = 24.dp, end = 24.dp), // Padding Top dinaikkan
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            // Judul
             Text(
                 text = "List Daftar Peserta",
-                fontSize = 28.sp, // Ukuran font lebih besar
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF4A148C), // Warna ungu gelap
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 32.dp)
-                    .align(Alignment.Start) // Judul rata kiri
+                color = titleColor // Teks warna putih
             )
+        }
 
-            // Input fields (sekarang sebagai tampilan data di kartu)
+        // 2. Konten (Kartu dan Tombol)
+        Column(
+            modifier = Modifier
+                .fillMaxSize() // Isi sisa ruang
+                // Padding untuk area konten
+                .padding(horizontal = 24.dp, vertical = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            // Kartu Tampilan Data
             FormTextField(label = "NAMA LENGKAP", value = namaLengkap, onValueChange = { namaLengkap = it })
             FormTextField(label = "JENIS KELAMIN", value = jenisKelamin, onValueChange = { jenisKelamin = it })
             FormTextField(label = "STATUS PERKAWINAN", value = statusPerkawinan, onValueChange = { statusPerkawinan = it })
             FormTextField(label = "ALAMAT", value = alamat, onValueChange = { alamat = it })
 
-            Spacer(modifier = Modifier.weight(1f)) // Mengambil sisa ruang
+            // Spacer untuk mendorong tombol ke bawah
+            Spacer(modifier = Modifier.weight(1f))
 
             // Tombol "Beranda"
             Button(
-                onClick = onNavigateHome, // Aksi untuk kembali ke beranda
+                onClick = onNavigateHome,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp) // Tinggi tombol
-                    .clip(RoundedCornerShape(12.dp)), // Sudut membulat
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6750A4)), // Warna ungu gelap
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp) // Sedikit efek elevasi
+                    .height(50.dp),
+                // Gunakan 'shape' untuk sudut membulat
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = headerColor), // Warna ungu tua
+                elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp)
             ) {
-                Text(text = "Beranda", color = Color.White, fontSize = 18.sp) // Warna teks putih
+                Text(text = "Beranda", color = Color.White, fontSize = 18.sp)
             }
 
             Spacer(modifier = Modifier.height(16.dp)) // Jarak antar tombol
 
             // Tombol "Formulir Pendaftaran"
             Button(
-                onClick = onNavigateToFormPendaftaran, // Aksi untuk formulir pendaftaran
+                onClick = onNavigateToFormPendaftaran,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp) // Tinggi tombol
-                    .clip(RoundedCornerShape(12.dp)), // Sudut membulat
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6750A4)), // Warna ungu gelap
+                    .height(50.dp),
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = headerColor), // Warna ungu tua
                 elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp)
             ) {
                 Text(text = "Formulir Pendaftaran", color = Color.White, fontSize = 18.sp)
@@ -127,7 +136,9 @@ fun FormScreen(onNavigateHome: () -> Unit, onNavigateToFormPendaftaran: () -> Un
     }
 }
 
-@Preview(showBackground = true, device = "spec:width=360dp,height=720dp,dpi=480") // Memperbarui preview device
+
+// Fungsi Preview ini sudah benar, tidak perlu diubah.
+@Preview(showBackground = true, device = "spec:width=360dp,height=720dp,dpi=480")
 @Composable
 fun FormScreenPreview() {
     NavigasiLayoutTheme {
