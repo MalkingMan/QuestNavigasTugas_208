@@ -94,3 +94,11 @@ fun FormTextField(label: String, value: String, onValueChange: (String) -> Unit)
         )
     }
 }
+
+@Preview(showBackground = true, device = "spec:shape=Normal,width=36-0,height=640,unit=dp,dpi=480")
+@Composable
+fun FormScreenPreview() {
+    PercobaanTheme {
+        FormScreen(onNavigateBack = {})
+    }
+}
