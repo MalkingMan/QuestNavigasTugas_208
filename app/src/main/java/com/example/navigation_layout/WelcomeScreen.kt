@@ -32,3 +32,10 @@ fun WelcomeScreen(onNavigateToForm: () -> Unit) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Selamat Datang",
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF4A148C) // Darker purple for text
+            )
