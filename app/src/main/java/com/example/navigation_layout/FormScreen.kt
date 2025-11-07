@@ -52,3 +52,12 @@ fun FormScreen(onNavigateBack: () -> Unit) {
             color = Color(0xFF4A148C), // Darker purple for text
             modifier = Modifier.padding(bottom = 32.dp)
         )
+        FormTextField(label = "NAMA LENGKAP", value = namaLengkap, onValueChange = { namaLengkap = it })
+        Spacer(modifier = Modifier.height(16.dp))
+        FormTextField(label = "JENIS KELAMIN", value = jenisKelamin, onValueChange = { jenisKelamin = it })
+        Spacer(modifier = Modifier.height(16.dp))
+        FormTextField(label = "STATUS PERKAWINAN", value = statusPerkawinan, onValueChange = { statusPerkawinan = it })
+        Spacer(modifier = Modifier.height(16.dp))
+        FormTextField(label = "ALAMAT", value = alamat, onValueChange = { alamat = it })
+
+        Spacer(modifier = Modifier.weight(1f))
