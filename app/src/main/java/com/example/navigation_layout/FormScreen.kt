@@ -73,3 +73,24 @@ fun FormScreen(onNavigateBack: () -> Unit) {
         }
     }
 }
+
+@Composable
+fun FormTextField(label: String, value: String, onValueChange: (String) -> Unit) {
+    Column {
+        Text(text = label, fontSize = 12.sp, color = Color.Gray)
+        TextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = Modifier.fillMaxWidth(),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
+                disabledContainerColor = Color.White,
+                cursorColor = Color(0xFF6750A4),
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+            ),
+            shape = RoundedCornerShape(8.dp)
+        )
+    }
+}
