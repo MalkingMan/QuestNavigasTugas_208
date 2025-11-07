@@ -61,3 +61,15 @@ fun FormScreen(onNavigateBack: () -> Unit) {
         FormTextField(label = "ALAMAT", value = alamat, onValueChange = { alamat = it })
 
         Spacer(modifier = Modifier.weight(1f))
+
+        Button(
+            onClick = onNavigateBack,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6750A4)) // Purple color for the button
+        ) {
+            Text(text = "Kembali")
+        }
+    }
+}
