@@ -59,4 +59,15 @@ fun WelcomeScreen(onNavigateToForm: () -> Unit) {
                     color = Color.Gray
                 )
             }
+            Button(
+                onClick = onNavigateToForm,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp)
+            ) {
+                Text(text = "Submit")
+            }
+        }
+    }
+}
 
