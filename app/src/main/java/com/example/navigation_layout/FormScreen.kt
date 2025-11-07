@@ -45,3 +45,10 @@ fun FormScreen(onNavigateBack: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
     }
+        Text(
+            text = "List Daftar Peserta",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF4A148C), // Darker purple for text
+            modifier = Modifier.padding(bottom = 32.dp)
+        )
