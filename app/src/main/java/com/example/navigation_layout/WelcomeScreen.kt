@@ -19,3 +19,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.navigation_layout.ui.theme.PercobaanTheme
+
+@Composable
+fun WelcomeScreen(onNavigateToForm: () -> Unit) {
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = Color(0xFFEADDFF) // Light purple background from the image
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.SpaceAround,
+            horizontalAlignment = Alignment.CenterHorizontally
